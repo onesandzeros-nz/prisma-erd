@@ -21,7 +21,7 @@ ${model.fields
           relationFromFields && relationFromFields.includes(field.name)
       )
   )
-  .map((field) => `    ${field.type} ${field.name}`)
+  .map((field) => `    ${field.type} ${field.name}${!field.isRequired || field.documentation ? `"${!field.isRequired ? "(nullable) ": ''}${field.documentation ? field.documentation : ''}"` : ''}`)
   .join("\n")}  
   }
 `
